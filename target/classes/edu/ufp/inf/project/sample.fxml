@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ufp.inf.project.Controller">
+    <children>
+        <AnchorPane prefHeight="647.0" prefWidth="900.0">
+            <children>
+                <TabPane layoutY="25.0" prefHeight="624.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab fx:id="sysGraph" text="Graph">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="586.0" prefWidth="900.0">
+                                    <children>
+                                        <Group fx:id="graphGroup" />
+                                        <HBox layoutY="445.0" prefHeight="32.0" prefWidth="896.0">
+                                            <children>
+                                                <Label prefHeight="43.0" prefWidth="63.0" text="Add">
+                                                    <opaqueInsets>
+                                                        <Insets />
+                                                    </opaqueInsets>
+                                                    <HBox.margin>
+                                                        <Insets />
+                                                    </HBox.margin>
+                                                    <padding>
+                                                        <Insets left="20.0" />
+                                                    </padding>
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="addFromField" prefHeight="28.0" prefWidth="148.0" promptText="From Node">
+                                                    <HBox.margin>
+                                                        <Insets />
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="addToField" prefHeight="28.0" prefWidth="148.0" promptText="To Node">
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" />
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="addDistanceField" prefHeight="28.0" prefWidth="148.0" promptText="Distance">
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" />
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="addTimeField" prefHeight="28.0" prefWidth="148.0" promptText="Time">
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" />
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <Button fx:id="sysAddEdge" mnemonicParsing="false" onAction="#handleAddEdgesToGraphAction" prefHeight="28.0" prefWidth="60.0" text="Add">
+                                                    <HBox.margin>
+                                                        <Insets left="10.0" />
+                                                    </HBox.margin>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutY="480.0" prefHeight="32.0" prefWidth="896.0">
+                                            <children>
+                                                <Label prefHeight="32.0" prefWidth="58.0" text="Remove">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                    <padding>
+                                                        <Insets left="5.0" />
+                                                    </padding>
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" />
+                                                    </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="removeFromField" prefHeight="28.0" prefWidth="148.0" promptText="From Node">
+                                                    <HBox.margin>
+                                                        <Insets top="1.0" />
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="removeToField" prefHeight="28.0" prefWidth="148.0" promptText="To Node">
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" top="1.0" />
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <Button fx:id="sysRemoveEdge" mnemonicParsing="false" onAction="#handleRemoveEdgesToGraphAction" prefHeight="28.0" prefWidth="80.0" text="Remove">
+                                                    <HBox.margin>
+                                                        <Insets left="10.0" top="1.0" />
+                                                    </HBox.margin>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="-1.0" layoutY="513.0" prefHeight="36.0" prefWidth="896.0">
+                                            <children>
+                                                <Label prefHeight="31.0" prefWidth="63.0" text="Edit">
+                                                    <padding>
+                                                        <Insets left="20.0" />
+                                                    </padding>
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="editFromField" prefHeight="28.0" prefWidth="148.0" promptText="From Node">
+                                                    <HBox.margin>
+                                                        <Insets top="3.0" />
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="editToField" prefHeight="28.0" prefWidth="148.0" promptText="To Node">
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" top="3.0" />
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="editDistanceField" prefHeight="28.0" prefWidth="148.0" promptText="Distance">
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" top="3.0" />
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="editTimeField" prefHeight="28.0" prefWidth="148.0" promptText="Time">
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" top="3.0" />
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <Button fx:id="sysEditEdge" mnemonicParsing="false" onAction="#handleEditEdgesToGraphAction" prefHeight="28.0" prefWidth="60.0" text="Edit">
+                                                    <HBox.margin>
+                                                        <Insets left="10.0" top="3.0" />
+                                                    </HBox.margin>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutY="545.0" prefHeight="45.0" prefWidth="896.0">
+                                            <children>
+                                                <Label prefHeight="44.0" prefWidth="86.0" text="Shortest path">
+                                                    <padding>
+                                                        <Insets left="10.0" />
+                                                    </padding>
+                                                </Label>
+                                                <TextField fx:id="shortestPathFromField" prefHeight="28.0" prefWidth="148.0" promptText="From Node">
+                                                    <HBox.margin>
+                                                        <Insets top="5.0" />
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="shortestPathToField" prefHeight="28.0" prefWidth="148.0" promptText="To Node">
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" top="5.0" />
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="avoidField" prefHeight="28.0" prefWidth="148.0" promptText="Avoid Edge">
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" top="5.0" />
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <Button fx:id="sysShortestPath" mnemonicParsing="false" onAction="#handleShortestPathAction" prefHeight="28.0" prefWidth="61.0" text="Search">
+                                                    <HBox.margin>
+                                                        <Insets left="10.0" top="5.0" />
+                                                    </HBox.margin>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                              <Button fx:id="sysAddEdge1" layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleCreateGraph" prefHeight="18.0" prefWidth="91.0" text="Create Graph" />
+                              <Button fx:id="sysAddEdgesFromFile" layoutX="122.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleAddEdgesFromFileAction" prefHeight="25.0" prefWidth="131.0" text="Add Edges (File)" />
+                                    </children></AnchorPane>
+
+                            </content>
+                        </Tab>
+                        <Tab fx:id="sysUsers" text="Users">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <VBox prefHeight="594.0" prefWidth="896.0">
+                                            <children>
+                                                <TableView fx:id="usersTable" prefHeight="517.0" prefWidth="896.0">
+                                                    <columns>
+                                          <TableColumn fx:id="sysUserId" prefWidth="75.0" text="Id" />
+                                                        <TableColumn fx:id="sysUserName" prefWidth="75.0" text="Name" />
+                                                        <TableColumn fx:id="sysUserType" prefWidth="75.0" text="Type" />
+                                                    </columns>
+                                                </TableView>
+                                                <HBox prefHeight="33.0" prefWidth="880.0" spacing="5.0">
+                                                    <children>
+                                          <TextField fx:id="userNameAddField" layoutX="180.0" layoutY="15.0" promptText="Name" />
+                                                        <TextField fx:id="userTypeAddField" promptText="Type">
+                                                            <HBox.margin>
+                                                                <Insets left="8.0" />
+                                                            </HBox.margin>
+                                                        </TextField>
+                                                        <Button fx:id="sysAddUser" mnemonicParsing="false" onAction="#handleAddUtilizadorAction" text="Add">
+                                                            <HBox.margin>
+                                                                <Insets left="10.0" />
+                                                            </HBox.margin>
+                                                        </Button>
+                                                        <Button fx:id="sysRemoveUser" mnemonicParsing="false" onAction="#handleDeleteUtilizadorAction" text="Remove">
+                                                            <HBox.margin>
+                                                                <Insets left="10.0" />
+                                                            </HBox.margin>
+                                                        </Button>
+                                          <TextField fx:id="userIdRemoveField" prefHeight="25.0" prefWidth="92.0" promptText="Id">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </TextField>
+                                                    </children>
+                                                    <padding>
+                                                        <Insets left="5.0" top="5.0" />
+                                                    </padding>
+                                                    <VBox.margin>
+                                                        <Insets left="10.0" />
+                                                    </VBox.margin>
+                                                </HBox>
+                                    <HBox prefHeight="43.0" prefWidth="803.0" spacing="5.0">
+                                       <children>
+                                          <TextField fx:id="userIdEditField" prefHeight="25.0" prefWidth="151.0" promptText="Id">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="userNameEditField" layoutX="180.0" layoutY="15.0" promptText="Name" />
+                                          <TextField fx:id="userTypeEditField" promptText="Type">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <Button fx:id="sysEditUser" mnemonicParsing="false" onAction="#handleEditUtilizadorAction" text="Edit">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" top="5.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="sysPOI" text="POI's">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <VBox prefHeight="591.0" prefWidth="896.0">
+                                            <children>
+                                                <TableView fx:id="poisTable" prefHeight="557.0" prefWidth="896.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="sysPoiId" minWidth="120.0" prefWidth="75.0" text="Id" />
+                                                        <TableColumn fx:id="sysPoiName" minWidth="120.0" prefWidth="75.0" text="Name" />
+                                                        <TableColumn fx:id="sysPoiLatitude" minWidth="120.0" prefWidth="75.0" text="Latitude" />
+                                          <TableColumn fx:id="sysPoiLongitude" minWidth="120.0" prefWidth="75.0" text="Longitude" />
+                                                        <TableColumn fx:id="sysPoiCategory" minWidth="120.0" prefWidth="75.0" text="Category" />
+                                          <TableColumn fx:id="sysPoiNetwork" minWidth="120.0" prefWidth="75.0" text="Network" />
+                                                    </columns>
+                                                </TableView>
+                                                <HBox prefHeight="81.0" prefWidth="896.0" spacing="5.0">
+                                                    <children>
+                                                        <TextField fx:id="poiNamefield" prefWidth="75.0" promptText="Name" />
+                                                        <TextField fx:id="poiLatitudeField" prefWidth="75.0" promptText="Latitude" />
+                                                        <TextField fx:id="poiLongitudeField" prefWidth="75.0" promptText="Longitude" />
+                                                        <TextField fx:id="poiCategoryField" prefWidth="75.0" promptText="Category" />
+                                          <TextField fx:id="poiNetworkField" layoutX="335.0" layoutY="15.0" prefWidth="75.0" promptText="Network" />
+                                                        <Button fx:id="sysAddPoi" mnemonicParsing="false" onAction="#handleAddPOIAction" text="Add">
+                                                            <HBox.margin>
+                                                                <Insets left="20.0" />
+                                                            </HBox.margin></Button>
+                                                        <Button fx:id="sysRemovePoi" mnemonicParsing="false" onAction="#handleDeletePOIAction" text="Remove" />
+                                          <TextField fx:id="poiIDRemoveField" layoutX="15.0" layoutY="15.0" prefHeight="25.0" prefWidth="75.0" promptText="Id" />
+                                                    </children>
+                                                    <padding>
+                                                        <Insets left="5.0" top="5.0" />
+                                                    </padding>
+                                                </HBox>
+                                    <HBox layoutX="10.0" layoutY="562.0" prefHeight="80.0" prefWidth="896.0" spacing="5.0">
+                                       <children>
+                                          <TextField fx:id="poiIDEditField" prefHeight="25.0" prefWidth="75.0" promptText="Id" />
+                                          <TextField fx:id="poiNameEditfield" prefWidth="75.0" promptText="Name" />
+                                          <TextField fx:id="poiLatitudeEditField" prefWidth="75.0" promptText="Latitude" />
+                                          <TextField fx:id="poiLongitudeEditField" prefWidth="75.0" promptText="Longitude" />
+                                          <TextField fx:id="poiCategoryEditField" prefWidth="75.0" promptText="Category" />
+                                          <TextField fx:id="poiNetworkEditField" prefWidth="75.0" promptText="Category" />
+                                          <Button fx:id="sysEditPoi" mnemonicParsing="false" onAction="#handleEditPOIAction" text="Edit">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                  <Tab fx:id="sysLogs" text="Logs">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="591.0" prefWidth="896.0">
+                                 <children>
+                                    <TableView fx:id="logsTable" prefHeight="557.0" prefWidth="896.0">
+                                       <columns>
+                                          <TableColumn fx:id="sysLogDate" minWidth="120.0" prefWidth="75.0" text="Date" />
+                                          <TableColumn fx:id="sysLogMessage" minWidth="120.0" prefWidth="75.0" text="Message" />
+                                       </columns>
+                                    </TableView>
+                                    <HBox prefHeight="81.0" prefWidth="896.0" spacing="5.0">
+                                       <children>
+                                          <TextField fx:id="logDateField" prefHeight="25.0" prefWidth="151.0" promptText="Date" />
+                                          <TextField fx:id="logMessageField" prefHeight="25.0" prefWidth="595.0" promptText="Message" />
+                                          <Button fx:id="sysAddLogs" mnemonicParsing="false" onAction="#handleAddLogAction" text="Add">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="sysUserSearch" text="User Searches">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Text layoutX="32.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User:" wrappingWidth="39.0">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="294.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Searches:" wrappingWidth="98.0">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="userSearchTOP5" layoutX="294.0" layoutY="76.0" mnemonicParsing="false" onAction="#handleUserSearchTOP5" prefHeight="27.0" prefWidth="140.0" text="TOP-5 Users" />
+                              <TextArea fx:id="resultUser" layoutX="32.0" layoutY="123.0" prefHeight="406.0" prefWidth="768.0" promptText="Results..." />
+                              <TextField fx:id="userSearchID" layoutX="32.0" layoutY="77.0" prefHeight="25.0" prefWidth="151.0" promptText="Id">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextField>
+                              <Button fx:id="userSearchVISITED" layoutX="450.0" layoutY="76.0" mnemonicParsing="false" onAction="#handleUserSearchVISTED" prefHeight="27.0" prefWidth="140.0" text="Visited POIS" />
+                              <Button fx:id="userSearchNOTVISTED" layoutX="611.0" layoutY="76.0" mnemonicParsing="false" onAction="#handleUserSearchNOTVISITED" prefHeight="27.0" prefWidth="140.0" text="Non Visted POIS" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="sysPoiSearch" text="POI Searches">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Text layoutX="32.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Poi:" wrappingWidth="39.0">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Text>
+                              <TextArea fx:id="resulPOI" layoutX="32.0" layoutY="123.0" prefHeight="406.0" prefWidth="768.0" promptText="Results..." />
+                              <Text layoutX="352.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Searches:" wrappingWidth="98.0">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="poiSearchTOP5" layoutX="352.0" layoutY="73.0" mnemonicParsing="false" onAction="#handlePOISearchTOP5" prefHeight="27.0" prefWidth="140.0" text="TOP-5 POIS" />
+                              <TextField fx:id="userSearchPOI" layoutX="32.0" layoutY="74.0" prefHeight="25.0" prefWidth="151.0" promptText="Id">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextField>
+                              <Button fx:id="poiSearchVISITED" layoutX="512.0" layoutY="73.0" mnemonicParsing="false" onAction="#handlePOISearchVISITS" prefHeight="27.0" prefWidth="140.0" text="Users Who Visited" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+
+                    </tabs>
+                </TabPane>
+                <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="896.0">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <Menu mnemonicParsing="false" text="Open">
+                                    <items>
+                                        <MenuItem fx:id="sysOpenTextFile" mnemonicParsing="false" onAction="#handleReadFileAction" text="Open Text File" />
+                                        <MenuItem fx:id="sysOpenBinFile" mnemonicParsing="false" onAction="#handleReadBinFileAction" text="Open Bin File" />
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="Save">
+                                    <items>
+                                        <MenuItem fx:id="sysSaveToTextFile" mnemonicParsing="false" onAction="#handleSaveFileAction" text="Save Text File" />
+                                        <MenuItem fx:id="sysSaveToBinFile" mnemonicParsing="false" onAction="#handleSaveBinFileAction" text="Save Bin File" />
+                                    </items>
+                                </Menu>
+                                <MenuItem mnemonicParsing="false" onAction="#handleExitAction" text="Exit" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem fx:id="sysAbout" mnemonicParsing="false" onAction="#handleAboutAction" text="About" />
+                            </items></Menu>
+                    </menus>
+                </MenuBar>
+            </children></AnchorPane>
+    </children>
+</AnchorPane>

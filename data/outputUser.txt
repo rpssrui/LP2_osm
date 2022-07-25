@@ -1,0 +1,7 @@
+6
+4,Ricardo,admin
+5,Manuel,basic
+1,Joao,admin
+6,Nelson,basic
+2,Tiago,basic
+3,Rui,basic
